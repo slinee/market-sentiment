@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Signal — Research workspace</title>
+  <meta name="description" content="A local evidence workspace for market research. Import text, follow tickers and inspect measured sentiment.">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<a class="skip-link" href="#mainContent">Skip to content</a>
+<header class="app-header" id="appHeader">
+  <a class="brand" href="#overview" aria-label="Signal overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17V7h4v10m3 0V3h4v14m3 0v-7h4v7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>SIGNAL<span>RESEARCH</span></a>
+  <button class="command" data-action="search" aria-label="Search pages and tickers"><span>Search workspace</span><kbd>⌘ K</kbd></button>
+  <div class="header-tools"><button class="engine-status" data-action="settings"><i></i><span id="engineLabel">Connecting</span></button><button class="icon-button" data-action="activity" aria-label="Workspace activity" title="Workspace activity"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17h14l-2-3V9a5 5 0 0 0-10 0v5ZM10 20h4"/></svg></button><button class="avatar" data-action="profile" id="headerAvatar" aria-label="Edit researcher profile">R</button></div>
+</header>
+<aside class="sidebar" id="sidebar">
+  <button class="workspace-switch" data-action="workspaces" aria-haspopup="dialog"><span class="workspace-icon">W</span><span><b id="workspaceName">My workspace</b><small>Local workspace</small></span><span class="chevron">⌄</span></button>
+  <div class="nav-label">RESEARCH</div>
+  <nav aria-label="Main navigation">
+    <button data-page="overview" class="active"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Overview</button>
+    <button data-page="watchlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3-5.7-3-5.7 3 1.1-6.3-4.6-4.5 6.4-.9Z"/></svg>Watchlist<span class="nav-count" id="watchCount">0</span></button>
+    <button data-page="news"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>Evidence feed</button>
+    <div class="nav-label tools-label">TOOLS</div>
+    <button data-page="pipeline"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17v4h16v-4M12 3v13M7 8l5-5 5 5"/></svg>Data sources</button>
+    <button data-page="backtest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18M6 15l5-5 4 3 6-8"/></svg>Simulation lab</button>
+  </nav>
+  <div class="collection-heading"><span class="nav-label">SECTORS</span><button class="icon-button small" data-action="add-ticker" aria-label="Add a ticker and sector" title="Add a ticker and sector">+</button></div>
+  <div id="collections" class="collections"><span class="sidebar-hint">Follow a ticker to organize your research.</span></div>
+  <div class="sidebar-bottom"><button class="utility" data-action="method"><span>?</span>Methodology</button><button class="utility" data-action="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg>Connections & settings</button><button class="profile" data-action="profile"><span class="avatar" id="sidebarAvatar">R</span><span><b id="profileName">Researcher</b><small id="profileRole">Independent research</small></span><span>⌄</span></button></div>
+</aside>
+<main id="mainContent" tabindex="-1">
+  <div class="context-bar"><div class="breadcrumb"><button data-action="workspaces" id="crumbWorkspace">My workspace</button><span>/</span><button data-action="pages" id="pageSelector" aria-haspopup="dialog">Overview <span>⌄</span></button></div><span class="local-label">LOCAL STORAGE</span></div>
+  <div class="content"><div class="page-heading"><div><div class="eyebrow" id="pageEyebrow">RESEARCH / OVERVIEW</div><h1 id="pageTitle">Research overview</h1><p id="pageSubtitle">Your evidence, measured.</p></div><div class="heading-actions"><button class="button" data-action="export" id="exportBtn">Export CSV</button><button class="button" data-action="refresh" id="refreshBtn"><span aria-hidden="true">↻</span> Refresh</button><button class="button primary" data-page="pipeline">+ Add evidence</button></div></div><div id="page" aria-busy="true"><div class="loading-state" role="status">Connecting to the research engine…</div></div><footer><span id="footerStatus">Connecting to local engine</span><button data-action="method">Scoring methodology ↗</button></footer></div>
+</main>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<div class="modal" id="modal" hidden><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><button class="close icon-button" data-action="close" aria-label="Close dialog">×</button><div id="modalContent"></div></section></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
